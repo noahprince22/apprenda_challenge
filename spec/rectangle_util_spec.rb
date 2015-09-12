@@ -1,6 +1,5 @@
 require_relative "../rectangle_util.rb"
 require_relative "../rectangle.rb"
-require 'pry'
 
 describe ("intersect") do 
 	util = RectangleUtil.new
@@ -110,5 +109,22 @@ describe ("contains") do
 		rectB = Rectangle.new(Point.new(10,1),1,1)
 
 		expect(util.contains(rectA,rectB)).to be false
+	end
+end
+
+describe ("adjacent") do 
+	util = RectangleUtil.new
+	rectA = Rectangle.new(Point.new(0,0), 4, 4)
+
+	it ("returns true when rectangles are adjacent") do
+		rectB = Rectangle.new(Point.new(1,1),3,1)
+
+		expect(util.adjacent(rectA,rectB)).to be true
+	end
+
+	it ("returns false when rectangles are not adjacent") do
+		rectB = Rectangle.new(Point.new(1,1),1,1)
+
+		expect(util.adjacent(rectA,rectB)).to be false
 	end
 end

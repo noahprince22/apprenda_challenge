@@ -1,7 +1,5 @@
 require_relative "point.rb"
 
-require 'pry'
-
 class Rectangle
 	attr_accessor :location, :width, :height
 
