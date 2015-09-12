@@ -14,6 +14,13 @@ class RectangleUtil
 		return ret
 	end
 
+	def contains(rect_a, rect_b) 
+		return (rect_b.location.x.between?(rect_a.location.x, rect_a.location.x + rect_a.width) and
+				rect_b.location.y.between?(rect_a.location.y, rect_a.location.y + rect_a.height) and
+				rect_b.location.x + rect_b.width <= rect_a.location.x + rect_a.width and
+				rect_b.location.y + rect_b.height <= rect_a.location.y + rect_a.height)
+	end
+
 	private
 
 	def dot(a, b)
